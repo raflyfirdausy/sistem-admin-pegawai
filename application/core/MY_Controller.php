@@ -13,12 +13,12 @@ class MY_Controller extends CI_Controller
         $userData   = $CI->m_data->getData("user")->row();
         
         $this->global_data = [
-            "app_name"          => "Sisdes",
-            "app_complete_name" => "Sistem Informasi Desa",
+            "app_name"          => "Sistem Administrasi Pegawai",
+            "app_complete_name" => "Sistem Administrasi Pegawai RSUD Bumiayu",
             "CI"                => $CI,
             "aktif"             => NULL,
             "user_data"         => $userData,
-            "title"             => ucwords($this->router->fetch_class())
+            "title"             => ucwords(str_replace("_", " ", $this->router->fetch_class()))
         ];    
         
     }

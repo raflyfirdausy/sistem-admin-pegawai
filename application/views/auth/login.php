@@ -26,11 +26,19 @@
                         <span class="db"><img src="<?= asset('website/nice/assets/images/logo-icon.png') ?>" alt="logo" /></span>
                         <h4 class="font-medium m-b-20">Masuk Aplikasi</h4>
                     </div>
-                    <?php if($this->session->flashdata("gagal")) : ?>
-                    <div class="alert alert-danger"> <?= $this->session->flashdata("gagal") ?> 
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
+
+                    <?php if ($this->session->flashdata("gagal")) : ?>
+                        <div class="alert alert-danger"> <?= $this->session->flashdata("gagal") ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                        </div>
                     <?php endif; ?>
+
+                    <?php if ($this->session->flashdata("sukses")) : ?>
+                        <div class="alert alert-success"> <?= $this->session->flashdata("sukses") ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">

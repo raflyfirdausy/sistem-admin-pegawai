@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
 $route['auth/login']['post']      = 'auth/prosesLogin';
+$route['ganti-password']['post']  = 'Ganti_password/ubah_password';
