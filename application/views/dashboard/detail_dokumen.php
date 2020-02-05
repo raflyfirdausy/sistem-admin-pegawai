@@ -2,7 +2,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12">
-                <h4 class="page-title">Detail Dokumen Rafli</h4>
+                <h4 class="page-title">Detail Dokumen <?= ucwords(strtolower($user_detail->nama_user)) ?></h4>
             </div>
         </div>
     </div>
@@ -18,15 +18,15 @@
                                         <img src="<?= asset('website/nice/assets/images/users/1-old.jpg') ?>" width="150px" alt="user" />
                                     </td>
                                     <td width="20%" class="align-middle">Nama</td>
-                                    <td class="align-middle">Rafli Firdausy</td>
+                                    <td class="align-middle"><?= ucwords(strtolower($user_detail->nama_user)) ?></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle">Username</td>
-                                    <td class="align-middle">raflyfirdausy</td>
+                                    <td class="align-middle"><?= strtolower($user_detail->username_user) ?></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle">Jabatan</td>
-                                    <td class="align-middle">Dokter</td>
+                                    <td class="align-middle"><?= ucwords(strtolower($user_detail->jabatan_user)) ?></td>
                                 </tr>
 
                             </table>
@@ -41,11 +41,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12 m-b-5">
-                                <a href="<?= base_url('dokumen-pegawai/lengkapi/raflyfirdausy') ?>" class="btn btn-success waves-effect float-left waves-light" type="button">Perbarui Dokumen</a>
+                        <?php if ($user_data->level_user == 3) : ?>
+                            <div class="row">
+                                <div class="col-md-12 m-b-5">
+                                    <a href="<?= base_url('dokumen-pegawai/lengkapi/') . $user_data->username_user ?>" class="btn btn-success waves-effect float-left waves-light" type="button">Lengkapi Dokumen</a>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                         <div class="table-responsive">
                             <table id="alt_pagination" class="table table-striped table-bordered display" style="width:100%">
                                 <thead>

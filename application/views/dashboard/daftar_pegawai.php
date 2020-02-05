@@ -111,8 +111,10 @@
                                             <td style="padding: 5px;" class="align-middle"><?= $d->created_at ?></td>
                                             <td style="padding: 5px;" class="align-middle text-center">
                                                 <a href="<?= base_url('dokumen-pegawai/detail/') . $d->username_user ?>" class="btn btn-sm btn-info text-white waves-effect waves-light">Lihat</a>
+                                                <?php if($user_data->level_user == 1) : ?>
                                                 <button class="btn btn-sm btn-primary waves-effect waves-light" type="button" data-toggle="modal" data-target="#ubah_pegawai<?= $d->username_user ?>">Ubah</button>
                                                 <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_pegawai<?= $d->username_user ?>">Hapus</button>
+                                                <?php endif; ?>
                                             </td>
 
                                             <!-- MODAL UBAH PEGAWAI -->

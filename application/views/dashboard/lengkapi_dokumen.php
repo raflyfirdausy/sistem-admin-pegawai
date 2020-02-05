@@ -2,7 +2,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12">
-                <h4 class="page-title">Detail Dokumen Rafli</h4>
+                <h4 class="page-title">Lengkapi Dokumen <?= ucwords(strtolower($user_detail->nama_user)) ?></h4>
             </div>
         </div>
     </div>
@@ -11,46 +11,15 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td width="150px" class="align-middle text-center" rowspan="3">
-                                        <img src="<?= asset('website/nice/assets/images/users/1-old.jpg') ?>" width="150px" alt="user" />
-                                    </td>
-                                    <td width="20%" class="align-middle">Nama</td>
-                                    <td class="align-middle">Rafli Firdausy</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">Username</td>
-                                    <td class="align-middle">raflyfirdausy</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">Jabatan</td>
-                                    <td class="align-middle">Dokter</td>
-                                </tr>
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Isi data di bawah ini</h4>
-                        <form class="m-t-20">
-
+                        <h4 class="card-title">Isi data di bawah ini (Maximal Ukuran per File 2MB)</h4>
+                        <form class="m-t-20" method="POST" action="<?= base_url('dokumen-pegawai/update-dokumen') ?>">
                             <div class="form-group row">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">
                                     Foto Formal
                                 </label>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <input type="file" class="custom-file-input" id="customFile" name="foto_formal">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
@@ -62,7 +31,7 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <input type="file" class="custom-file-input" id="customFile" name="ijazah_sd">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
@@ -74,14 +43,14 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <input type="file" class="custom-file-input" id="customFile" name="ijazah_smp">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                <label for="fname" class="col-sm-3 text-right control-label col-form-label" name="ijazah_smak">
                                     Ijazah SMA/K
                                 </label>
                                 <div class="col-sm-9">
@@ -93,7 +62,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                <label for="fname" class="col-sm-3 text-right control-label col-form-label" name="ktp">
                                     Kartu Tanda Penduduk
                                 </label>
                                 <div class="col-sm-9">
@@ -105,7 +74,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                <label for="fname" class="col-sm-3 text-right control-label col-form-label" name="kk">
                                     Kartu Keluarga
                                 </label>
                                 <div class="col-sm-9">
@@ -122,14 +91,14 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <div class="email-repeater form-group">
-                                        <div data-repeater-list="repeater-group">
+                                        <div data-repeater-list="list_sertifikat">
                                             <div data-repeater-item class="row m-b-15">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="" placeholder="Nama Sertifikat">
+                                                    <input type="text" class="form-control" id="" placeholder="Nama Sertifikat" name="nama_sertifikat">
                                                 </div>
                                                 <div class="col-md-5">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <input type="file" class="custom-file-input" id="customFile" name="sertifikat">
                                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                                     </div>
                                                 </div>
@@ -151,14 +120,14 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <div class="email-repeater form-group">
-                                        <div data-repeater-list="repeater-group">
+                                        <div data-repeater-list="list_surat_keterangan">
                                             <div data-repeater-item class="row m-b-15">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="" placeholder="Nama Surat Keterangan">
+                                                    <input type="text" class="form-control" id="" placeholder="Nama Surat Keterangan" name="nama_surat_keterangan">
                                                 </div>
                                                 <div class="col-md-5">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <input type="file" class="custom-file-input" id="customFile" name="surat_keterangan">
                                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                                     </div>
                                                 </div>

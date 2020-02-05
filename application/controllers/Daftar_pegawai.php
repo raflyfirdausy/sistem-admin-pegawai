@@ -6,6 +6,12 @@ class Daftar_pegawai extends Admin_Controller
     public function __construct()
     {
         parent::__construct();
+        $level_user = $this->global_data['user_data']->level_user;
+
+        // 1 = admin | 2 = direksi | 3 = pegawai
+        if ($level_user == 3) {
+            redirect(base_url());
+        }
     }
 
     public function index()
@@ -85,7 +91,8 @@ class Daftar_pegawai extends Admin_Controller
         redirect(base_url('daftar-pegawai'));
     }
 
-    public function hapus_data(){
+    public function hapus_data()
+    {
         $id_pegawai     = $this->input->post('id_pegawai');
 
         $delete     = $this->m_data->delete(["id_user" => $id_pegawai], "user");
