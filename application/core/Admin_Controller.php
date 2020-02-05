@@ -6,6 +6,9 @@ class Admin_Controller extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        if (!$this->session->has_userdata('login_pegawai')) {
+            redirect(base_url("auth/login"));
+        }
     }
 
     protected function loadViewAdmin($view = NULL, $local_data = array(), $asData = FALSE){

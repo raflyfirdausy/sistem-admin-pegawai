@@ -19,28 +19,33 @@
                 <div class="lds-pos"></div>
             </div>
         </div>
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(<?= asset('website/nice/assets/images/big/auth-bg.jpg') ?>) no-repeat center center;">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url(<?= asset('website/img/bg-login.jpg') ?>); background-size: cover;">
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
                         <span class="db"><img src="<?= asset('website/nice/assets/images/logo-icon.png') ?>" alt="logo" /></span>
                         <h4 class="font-medium m-b-20">Masuk Aplikasi</h4>
                     </div>
+                    <?php if($this->session->flashdata("gagal")) : ?>
+                    <div class="alert alert-danger"> <?= $this->session->flashdata("gagal") ?> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    </div>
+                    <?php endif; ?>
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">
-                            <form class="form-horizontal m-t-20" id="loginform" action="index.html">
+                            <form class="form-horizontal m-t-20" id="loginform" method="POST" action="<?= base_url("auth/login") ?>">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input name="username" type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="form-group text-center">
                                     <div class="col-xs-12 p-b-20">

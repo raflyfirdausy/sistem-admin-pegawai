@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Daftar_pegawai extends Admin_Controller
+class Ganti_password extends Admin_Controller
 {
     public function __construct()
     {
@@ -9,7 +9,7 @@ class Daftar_pegawai extends Admin_Controller
     }
 
     public function index()
-    {        
-        $this->loadViewAdmin("dashboard/daftar_pegawai");
+    {
+        $this->loadViewAdmin("dashboard/ganti_password");
     }
 }

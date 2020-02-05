@@ -79,9 +79,8 @@
                                     </div>
                                 </div>
 
-                                <a class="dropdown-item" href="javascript:void(0)">
+                                <a class="dropdown-item" href="<?= base_url("auth/logout") ?>">
                                     <i class="fa fa-power-off m-r-5 m-l-5"></i> Keluar</a>
-
                             </div>
                         </li>
 

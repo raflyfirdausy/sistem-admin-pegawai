@@ -75,14 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	// 'hostname' => '103.133.223.26',
-	// 'username' => 'ultrane_new_sisdes',
-	// 'password' => 'ultrane_new_sisdes',
-	// 'database' => 'ultrane_new_sisdes',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	'database' => 'pegawai',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

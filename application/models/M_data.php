@@ -66,8 +66,8 @@ class M_data extends CI_Model
 
     function insert($table, $data)
     {
-        $query = $this->db->insert($table, $data);
-        return $query;
+        $this->db->insert($table, $data);
+        return $this->db->insert_id();
     }
 
     function update($table, $data, $kondisi)
