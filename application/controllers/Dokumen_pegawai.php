@@ -10,7 +10,7 @@ class Dokumen_pegawai extends Admin_Controller
 
     public function index()
     {
-        $this->loadViewAdmin("dashboard/dokumen_pegawai");
+        $this->loadViewAdmin("dashboard/dokumen_pegawai");        
     }
 
     public function detail($username = NULL){
