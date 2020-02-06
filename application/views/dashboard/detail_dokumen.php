@@ -59,77 +59,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style="padding: 5px;" class="align-middle text-center">1</td>
-                                        <td style="padding: 5px;" class="align-middle">Ijazah</td>
-                                        <td style="padding: 5px;" class="align-middle">02-02-2020</td>
-                                        <td style="padding: 5px;" class="align-middle text-center">
-                                            <button class="btn btn-sm btn-info waves-effect waves-light" type="button">Download Dokumen</button>
-                                        </td>
+                                    <?php $no = 1;
+                                    foreach ($dokumen as $d) : ?>
 
-                                        <!-- MODAL TAMBAH SURAT KELUAR -->
-                                        <div class="modal fade" id="ubah_surat" tabindex="-1" role="dialog" aria-labelledby="ubah_surat">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title" id="exampleModalLabel1">Ubah Surat Keluar</h4>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label for="recipient-name" class="control-label">Jenis Surat</label>
-                                                                <select class="select2 form-control custom-select" style="width: 100%;" name="jenis_surat_tambah" id="jenis_surat_tambah2" required>
-                                                                    <option value="">Pilih Jenis Surat</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="message-text" class="control-label">Nomor Surat</label>
-                                                                <input type="text" class="form-control" name="nomor_surat" id="nomor_surat">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="message-text" class="control-label">Tanggal Surat</label>
-                                                                <div class="input-group" style="width: 100%;">
-                                                                    <input type="text" class="form-control" id="datepicker-autoclose2" name="tgl_surat" placeholder="mm/dd/yyyy">
-                                                                    <div class="input-group-append">
-                                                                        <span class="input-group-text"><i class="icon-calender"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                        <button type="submit" class="btn btn-success">Tambah</button>
-                                                        </form>
+                                        <tr>
+                                            <td style="padding: 5px;" class="align-middle text-center"><?= $no++ ?></td>
+                                            <td style="padding: 5px;" class="align-middle"><?= $d->nama_file ?></td>
+                                            <td style="padding: 5px;" class="align-middle"><?= $d->updated_at ?></td>
+                                            <td style="padding: 5px;" class="align-middle text-center">
+                                                <a target="_blank" href="<?= base_url('assets/dokumen/') . $d->lokasi_file ?>" class="btn btn-sm btn-info waves-effect waves-light" type="button">Download</a>
+                                                <?php if ($user_data->level_user == 3) : ?>
+                                                    <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_dokumen_<?= md5($d->id_file) ?>">Hapus</button>
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <!-- MODAL HAPUS -->
+                                            <div class="modal fade" id="hapus_dokumen_<?= md5($d->id_file) ?>" tabindex="-1" role="dialog" aria-labelledby="hapus_surat">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="exampleModalLabel1">Hapus Surat Keluar</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST" action="<?= base_url('dokumen-pegawai/hapus') ?>">
+                                                                <input type="hidden" name="id_file" value="<?= $d->id_file ?>">
+                                                                <p>Apakah anda yakin ingin menghapus data <?= $d->nama_file ?> ?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- END MODAL -->
-
-                                        <!-- MODAL HAPUS SURAT KELUAR -->
-                                        <div class="modal fade" id="hapus_surat" tabindex="-1" role="dialog" aria-labelledby="hapus_surat">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title" id="exampleModalLabel1">Hapus Surat Keluar</h4>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <p>Apakah anda yakin ingin menghapus data ini?</p>
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- END MODAL -->
-                                    </tr>
+                                            <!-- END MODAL -->
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

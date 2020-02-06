@@ -44,6 +44,7 @@ class Dokumen_pegawai extends Admin_Controller
 
         $dokumen        = $this->m_data->getWhere("id_user", $user_detail->id_user);
         $dokumen        = $this->m_data->getData("file")->result();
+        // d($dokumen);
 
         $data["user_detail"]    = $user_detail;
         $data["dokumen"]        = $dokumen;
@@ -110,7 +111,7 @@ class Dokumen_pegawai extends Admin_Controller
                             "id_user"       => $this->user->id_user,
                             "nama_file"     => ucwords(strtolower(str_replace("_", " ", $key))),
                             "jenis_file"    => $key,
-                            "lokasi_file"   => $namafile
+                            "lokasi_file"   => str_replace(" ", "_", $namafile)
                         );
 
                         if ($cekDatabase) {   //ada => update
@@ -158,7 +159,7 @@ class Dokumen_pegawai extends Admin_Controller
                             "id_user"       => $this->user->id_user,
                             "nama_file"     => $_POST[$key][$index]["nama_" . $key],
                             "jenis_file"    => $key,
-                            "lokasi_file"   => $namafile
+                            "lokasi_file"   => str_replace(" ", "_", $namafile)
                         );
                         $this->m_data->insert("file", $dataInsert);
                         array_push($dataSukses, "Sukses Upload : " . ucwords(strtolower($_POST[$key][$index]["nama_" . $key])));
@@ -172,5 +173,19 @@ class Dokumen_pegawai extends Admin_Controller
         $this->session->set_flashdata("dataSukses", $dataSukses);
         $this->session->set_flashdata("dataGagal", $dataGagal);
         redirect("dokumen-pegawai/lengkapi/" . $this->user->username_user);
+    }
+
+    public function hapus()
+    {
+        $id_file    = $this->input->post('id_file');
+
+        $hapus      = $this->m_data->delete(["id_file" => $id_file], "file");
+
+        if ($hapus > 0) {
+            $this->session->set_flashdata("sukses", "Sukses Menghapus Dokumen pada database!");
+        } else {
+            $this->session->set_flashdata("gagal", "Gagal Menghapus Dokumen pada database!");
+        }
+        redirect(base_url('dokumen-pegawai/detail/') . $this->user->username_user);
     }
 }
