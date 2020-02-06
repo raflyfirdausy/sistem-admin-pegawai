@@ -24,7 +24,7 @@
                 <div id="loginform">
                     <div class="logo">
                         <span class="db"><img src="<?= asset('website/nice/assets/images/logo-icon.png') ?>" alt="logo" /></span>
-                        <h4 class="font-medium m-b-20">Masuk Aplikasi</h4>
+                        <h4 class="font-medium m-t-10">Masuk Sistem Administrasi Pegawai</h4>
                     </div>
 
                     <?php if ($this->session->flashdata("gagal")) : ?>
