@@ -7,6 +7,23 @@
         </div>
     </div>
     <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <?php if ($this->session->flashdata("sukses")) : ?>
+                    <div class="alert alert-success"> <?= $this->session->flashdata("sukses") ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($this->session->flashdata("gagal")) : ?>
+                    <div class="alert alert-danger"> <?= $this->session->flashdata("gagal") ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -15,7 +32,7 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <td width="150px" class="align-middle text-center" rowspan="3">
-                                        <img src="<?= asset('website/nice/assets/images/users/1-old.jpg') ?>" width="150px" alt="user" />
+                                        <img src="<?= $foto == "" ? asset('website/img/default.png') : $foto ?>" width="150px" alt="user" />
                                     </td>
                                     <td width="20%" class="align-middle">Nama</td>
                                     <td class="align-middle"><?= ucwords(strtolower($user_detail->nama_user)) ?></td>
@@ -44,7 +61,7 @@
                         <?php if ($user_data->level_user == 3) : ?>
                             <div class="row">
                                 <div class="col-md-12 m-b-5">
-                                    <a href="<?= base_url('dokumen-pegawai/lengkapi/') . $user_data->username_user ?>" class="btn btn-success waves-effect float-left waves-light" type="button">Lengkapi Dokumen</a>
+                                    <a href="<?= base_url('dokumen-pegawai/lengkapi/') . $user_data->username_user ?>" class="btn btn-success waves-effect float-left waves-light" type="button">Lengkapi atau Ubah Dokumen</a>
                                 </div>
                             </div>
                         <?php endif; ?>

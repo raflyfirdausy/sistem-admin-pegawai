@@ -4,12 +4,13 @@
             <ul id="sidebarnav">
 
                 <?php if ($user_data->level_user == 1 || $user_data->level_user == 2) : ?>
-                    <li class="sidebar-item">
+                    
+                    <!-- <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('dashboard') ?>" aria-expanded="false">
                             <i class="mdi mdi-av-timer"></i>
                             <span class="hide-menu">Dashboard</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('daftar-pegawai') ?>" aria-expanded="false">

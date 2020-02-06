@@ -44,10 +44,15 @@ class Dokumen_pegawai extends Admin_Controller
 
         $dokumen        = $this->m_data->getWhere("id_user", $user_detail->id_user);
         $dokumen        = $this->m_data->getData("file")->result();
-        // d($dokumen);
+
+
+        $foto           = $this->m_data->getWhere("id_user", $user_detail->id_user);
+        $foto           = $this->m_data->getWhere("jenis_file", "foto_formal");
+        $foto           = $this->m_data->getData("file")->row();
 
         $data["user_detail"]    = $user_detail;
         $data["dokumen"]        = $dokumen;
+        $data["foto"]           = $foto ? base_url("assets/dokumen/" . $foto->lokasi_file) : "";        
 
         $this->loadViewAdmin("dashboard/detail_dokumen", $data);
     }

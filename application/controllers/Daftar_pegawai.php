@@ -7,8 +7,7 @@ class Daftar_pegawai extends Admin_Controller
     {
         parent::__construct();
         $level_user = $this->global_data['user_data']->level_user;
-
-        // 1 = admin | 2 = direksi | 3 = pegawai
+        
         if ($level_user == 3) {
             redirect(base_url());
         }

@@ -95,6 +95,7 @@
                                         <th style=" padding: 10px;">Nama Pegawai</th>
                                         <th style=" padding: 10px;">Username</th>
                                         <th style=" padding: 10px;">Jabatan</th>
+                                        <!-- <th style=" padding: 10px;">Jumlah Dokumen</th> -->
                                         <th style=" padding: 10px;">Tanggal Terdaftar</th>
                                         <th style="padding: 10px;" class="text-center">Aksi</th>
                                     </tr>
@@ -108,6 +109,7 @@
                                             <td style="padding: 5px;" class="align-middle"><?= $d->nama_user ?></td>
                                             <td style="padding: 5px;" class="align-middle"><?= $d->username_user ?></td>
                                             <td style="padding: 5px;" class="align-middle"><?= $d->jabatan_user ?></td>
+                                            <!-- <td style="padding: 5px;" class="align-middle text-center"><?= 0 ?></td> -->
                                             <td style="padding: 5px;" class="align-middle"><?= $d->created_at ?></td>
                                             <td style="padding: 5px;" class="align-middle text-center">
                                                 <a href="<?= base_url('dokumen-pegawai/detail/') . $d->username_user ?>" class="btn btn-sm btn-info text-white waves-effect waves-light">Lihat</a>

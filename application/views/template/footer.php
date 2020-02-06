@@ -2,10 +2,10 @@
 </div>
 <!-- TUTUP <div id="main-wrapper"> -->
 
-<footer class="footer text-right">
+<!-- <footer class="footer text-right">
     All Rights Reserved by <a href="https://ultranesia.com" target="blank">ultranesia.com</a> Designed and Developed by
     <a href="https://wrappixel.com">WrapPixel</a>.
-</footer>
+</footer> -->
 <!-- <div class="chat-windows"></div> -->
 
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"/> -->

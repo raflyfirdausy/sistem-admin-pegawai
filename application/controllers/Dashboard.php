@@ -9,6 +9,8 @@ class Dashboard extends Admin_Controller
         $level_user = $this->global_data['user_data']->level_user;
         if ($level_user == 3) {
             redirect(base_url('dokumen-pegawai'));
+        } else {
+            redirect(base_url('daftar-pegawai'));
         }
     }
 

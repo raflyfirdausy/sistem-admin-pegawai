@@ -45,7 +45,7 @@
                     <div class="navbar-brand">
                         <a href="index.html" class="logo">
                             <span class="logo-text">
-                                <h3 class="text-white m-l-5">Sistem Pegawai</h3>                                
+                                <h3 class="text-white m-l-5">Sistem Pegawai</h3>
                             </span>
                         </a>
                         <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
@@ -62,7 +62,7 @@
                     <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="<?= asset('website/nice/assets/images/users/4.jpg'); ?>" alt="user" class="rounded-circle" width="40">
+                                <img src="<?= asset('website/img/default.png') ?>" alt="user" class="rounded-circle" width="40">
                                 <span class="m-l-5 font-medium d-none d-sm-inline-block"><?= $user_data->nama_user ?> <i class="mdi mdi-chevron-down"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -71,7 +71,7 @@
                                 </span>
                                 <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                     <div class="">'
-                                        <img src="<?= asset('website/nice/assets/images/users/4.jpg'); ?>" alt="user" class="rounded-circle" width="60">
+                                        <img src="<?= asset('website/img/default.png') ?>" alt="user" class="rounded-circle" width="60">
                                     </div>
                                     <div class="m-l-10">
                                         <h4 class="mb-0"><?= $user_data->nama_user ?></h4>
