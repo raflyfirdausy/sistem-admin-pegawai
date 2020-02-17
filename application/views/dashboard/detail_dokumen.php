@@ -35,7 +35,7 @@
                                         <img src="<?= $foto == "" ? asset('website/img/default.png') : $foto ?>" width="150px" alt="user" />
                                     </td>
                                     <td width="20%" class="align-middle">Nama</td>
-                                    <td class="align-middle"><?= ucwords(strtolower($user_detail->nama_user)) ?></td>
+                                    <td class="align-middle"><?= $user_detail->gelardepan_user . " " . ucwords(strtolower($user_detail->nama_user)) . " " . $user_detail->gelarbelakang_user ?></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle">Username</td>
@@ -43,7 +43,7 @@
                                 </tr>
                                 <tr>
                                     <td class="align-middle">Jabatan</td>
-                                    <td class="align-middle"><?= ucwords(strtolower($user_detail->jabatan_user)) ?></td>
+                                    <td class="align-middle"><?= ucwords(strtolower($user_detail->nama_jabatan)) ?></td>
                                 </tr>
 
                             </table>
@@ -85,6 +85,7 @@
                                             <td style="padding: 5px;" class="align-middle"><?= $d->updated_at ?></td>
                                             <td style="padding: 5px;" class="align-middle text-center">
                                                 <a target="_blank" href="<?= base_url('assets/dokumen/') . $d->lokasi_file ?>" class="btn btn-sm btn-info waves-effect waves-light" type="button">Download</a>
+                                                <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_dokumen_<?= md5($d->id_file) ?>">Hapus</button>
                                                 <?php if ($user_data->level_user == 3) : ?>
                                                     <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_dokumen_<?= md5($d->id_file) ?>">Hapus</button>
                                                 <?php endif; ?>
@@ -99,7 +100,7 @@
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="POST" action="<?= base_url('dokumen-pegawai/hapus') ?>">
+                                                            <form method="POST" action="<?= current_url() ?>">
                                                                 <input type="hidden" name="id_file" value="<?= $d->id_file ?>">
                                                                 <p>Apakah anda yakin ingin menghapus data <?= $d->nama_file ?> ?</p>
                                                         </div>

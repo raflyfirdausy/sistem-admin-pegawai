@@ -18,6 +18,13 @@
                             <span class="hide-menu">Daftar Pegawai</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('daftar-jabatan') ?>" aria-expanded="false">
+                            <i class="mdi mdi-account-multiple"></i>
+                            <span class="hide-menu">Daftar Jabatan</span>
+                        </a>
+                    </li>
                 <?php endif; ?>
 
                 <?php if ($user_data->level_user == 3) : ?>
@@ -28,6 +35,13 @@
                         </a>
                     </li>
                 <?php endif; ?>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('statistik') ?>" aria-expanded="false">
+                        <i class="mdi mdi-account-multiple"></i>
+                        <span class="hide-menu">Statistik</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('ganti-password') ?>" aria-expanded="false">

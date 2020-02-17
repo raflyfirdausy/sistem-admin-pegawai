@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = TRUE;
 
 $route['auth/login']['post']      = 'auth/prosesLogin';
 $route['ganti-password']['post']  = 'Ganti_password/ubah_password';
+
+$route['auth/register']['post']   = 'auth/proses_register';
+$route['dokumen-pegawai/detail/(:any)']['post'] = "dokumen-pegawai/hapus";

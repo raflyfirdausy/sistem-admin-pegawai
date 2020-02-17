@@ -24,7 +24,7 @@
                 <div id="loginform">
                     <div class="logo">
                         <span class="db"><img src="<?= asset('website/nice/assets/images/logo-icon.png') ?>" alt="logo" /></span>
-                        <h4 class="font-medium m-t-10">Masuk Sistem Administrasi Pegawai</h4>
+                        <h4 class="font-medium m-t-10">Masuk Sistem Administrasi Pegawai RSUD Bumiayu</h4>
                     </div>
 
                     <?php if ($this->session->flashdata("gagal")) : ?>
@@ -55,9 +55,21 @@
                                     </div>
                                     <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <div class="custom-control">
+                                        <a href="javascript:void(0)" id="to-recover" class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Lupa Password ?</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group text-center">
-                                    <div class="col-xs-12 p-b-20">
+                                    <div class="col-xs-12 p-b-10">
                                         <button class="btn btn-block btn-lg btn-info" type="submit">Masuk</button>
+                                    </div>
+                                </div>
+                                <div class="form-group m-b-0 m-t-0">
+                                    <div class="col-sm-12 text-center">
+                                        Belum punya akun ? <a href="<?= base_url("auth/register") ?>" class="text-info m-l-5"><b>Daftar Disini</b></a>
                                     </div>
                                 </div>
                             </form>
@@ -74,9 +86,16 @@
         $('[data-toggle="tooltip"]').tooltip();
         $(".preloader").fadeOut();
         $('#to-recover').on("click", function() {
-            $("#loginform").slideUp();
-            $("#recoverform").fadeIn();
+            alert("Silahkan hubungi admin untuk melakukan reset password anda");
         });
+
+        $("#lupa").on("click", function() {
+            Swal.fire(
+                'Info',
+                'Silahkan Hubungi admin untuk reset password',
+                'info'
+            );
+        })
     </script>
 </body>
 

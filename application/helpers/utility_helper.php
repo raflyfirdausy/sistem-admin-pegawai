@@ -39,3 +39,33 @@ if (!function_exists('generator')) {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
     }
 }
+
+if (!function_exists('daftar_agama')){
+    function daftar_agama(){
+        return array(
+            strtoupper("Islam"), 
+            strtoupper("Kristen"), 
+            strtoupper("Katholik"), 
+            strtoupper("Hindu"),
+            strtoupper("Budha"),
+            strtoupper("Konghuchu")            
+        );
+    }
+}
+
+if (!function_exists('pendidikan_terakhir')){
+    function pendidikan_terakhir(){
+        return array(
+            strtoupper("TIDAK/BLM SEKOLAH"),
+            strtoupper("SD"), 
+            strtoupper("SLTP/SEDERAJAT"), 
+            strtoupper("SLTA/SEDERAJAT"), 
+            strtoupper("DIPLOMA I"),
+            strtoupper("AKADEMI/DIPLOMA III/SARJANA MUDA"),
+            strtoupper("DIPLOMA IV"),            
+            strtoupper("SARJANA/S1"),  
+            strtoupper("MAGISTER/S2"),
+            strtoupper("DOKTOR/S3"),
+        );
+    }
+}

@@ -9,7 +9,9 @@ class MY_Controller extends CI_Controller
         parent::__construct();
         $CI = &get_instance();
     
+        $userData   = $CI->m_data->select(["user.*", "jabatan.nama_jabatan"]);
         $userData   = $CI->m_data->getWhere("id_user", $CI->session->userdata("login_pegawai")->id_user);
+        $userData   = $CI->m_data->getJoin("jabatan", "user.id_jabatan = jabatan.id_jabatan", "LEFT");
         $userData   = $CI->m_data->getData("user")->row();
         
         $this->global_data = [

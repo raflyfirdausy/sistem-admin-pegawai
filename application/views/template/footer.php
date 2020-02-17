@@ -31,6 +31,8 @@
 <script src="<?= asset('website/nice/dist/js/custom.js'); ?>"></script>
 <!--This page JavaScript -->
 <!--chartis chart-->
+
+
 <script src="<?= asset('website/nice/assets/libs/chartist/dist/chartist.min.js'); ?>"></script>
 <script src="<?= asset('website/nice/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js'); ?>"></script>
 <!--c3 charts -->
