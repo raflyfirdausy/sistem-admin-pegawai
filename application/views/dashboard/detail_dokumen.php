@@ -84,9 +84,8 @@
                                             <td style="padding: 5px;" class="align-middle"><?= $d->nama_file ?></td>
                                             <td style="padding: 5px;" class="align-middle"><?= $d->updated_at ?></td>
                                             <td style="padding: 5px;" class="align-middle text-center">
-                                                <a target="_blank" href="<?= base_url('assets/dokumen/') . $d->lokasi_file ?>" class="btn btn-sm btn-info waves-effect waves-light" type="button">Download</a>
-                                                <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_dokumen_<?= md5($d->id_file) ?>">Hapus</button>
-                                                <?php if ($user_data->level_user == 3) : ?>
+                                                <a target="_blank" href="<?= base_url('assets/dokumen/') . $d->lokasi_file ?>" class="btn btn-sm btn-info waves-effect waves-light" type="button">Download</a>                                                
+                                                <?php if ($user_data->level_user == 3 || $user_data->level_user == 1) : ?>
                                                     <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_dokumen_<?= md5($d->id_file) ?>">Hapus</button>
                                                 <?php endif; ?>
                                             </td>
