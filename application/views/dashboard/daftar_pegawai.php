@@ -23,6 +23,9 @@
                             <button type="submit" class="btn waves-effect waves-light btn-info" style="width: 100px;"><i class="fa fa-search"></i> Cari</button>
                             <?php if ($user_data->level_user == 1) : ?>
                                 <div class="float-right">
+                                    <?php if ($user_data->level_user != 3) : ?>
+                                        <a href="<?= base_url('daftar-pegawai/export') ?>" type="button" class="btn waves-effect waves-light btn-danger">Export Pegawai</a>
+                                    <?php endif; ?>
                                     <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahPegawai">Tambah Pegawai</button>
                                 </div>
                             <?php endif; ?>
@@ -112,10 +115,65 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="message-text" class="control-label">Nama Pegawai</label>
-                                <input type="text" class="form-control" name="nama_pegawai" id="nama_pegawai">
-                            </div> -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>No Handphone</label>
+                                        <input maxlength="13" onkeyup="numOnly(this)" onblur="numOnly(this)" required type="tel" id="no_hp" name="no_hp" class="form-control" placeholder="No Hp Anda">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Jalan</label>
+                                        <input  type="text" name="jalan" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>RT</label>
+                                        <input  onkeyup="numOnly(this)" onblur="numOnly(this)" type="text" id="rt" name="rt" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>RW</label>
+                                        <input onkeyup="numOnly(this)" onblur="numOnly(this)" type="text" name="rw" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Desa</label>
+                                        <input type="text" name="desa" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Kecamatan</label>
+                                        <input type="text" name="kecamatan" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Kabupaten</label>
+                                        <input type="text" name="kabupaten" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Provinsi</label>
+                                        <input type="text" name="provinsi" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Jenis Pegawai</label>
                                 <select class="select2 form-control custom-select" style="width: 100%;" name="jabatan_pegawai" id="jenis_surat_tambah" required>
@@ -249,6 +307,66 @@
                                                                     </div>
                                                                 </div>
 
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>No Handphone</label>
+                                                                            <input value="<?= $d->no_hp ?>" maxlength="13" onkeyup="numOnly(this)" onblur="numOnly(this)" required type="tel" id="no_hp" name="no_hp" class="form-control" placeholder="No Hp Anda">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label>Jalan</label>
+                                                                            <input value="<?= $d->jalan ?>" type="text" name="jalan" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label>RT</label>
+                                                                            <input value="<?= $d->rt ?>" onkeyup="numOnly(this)" onblur="numOnly(this)" type="text" id="rt" name="rt" class="form-control" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label>RW</label>
+                                                                            <input value="<?= $d->rw ?>" onkeyup="numOnly(this)" onblur="numOnly(this)" type="text" name="rw" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label>Desa</label>
+                                                                            <input value="<?= $d->desa ?>" type="text" name="desa" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label>Kecamatan</label>
+                                                                            <input value="<?= $d->kecamatan ?>" type="text" name="kecamatan" class="form-control" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label>Kabupaten</label>
+                                                                            <input value="<?= $d->kabupaten ?>" type="text" name="kabupaten" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label>Provinsi</label>
+                                                                            <input value="<?= $d->provinsi ?>" type="text" name="provinsi" class="form-control" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                                 <div class="form-group">
                                                                     <label for="recipient-name" class="control-label">Jenis Pegawai</label>
                                                                     <select class="select2 form-control custom-select" style="width: 100%;" name="jabatan_pegawai" id="jenis_surat_tambah" required>
@@ -308,3 +426,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    function numOnly(selector) {
+        selector.value = selector.value.replace(/[^0-9]/g, '');
+    }
+</script>

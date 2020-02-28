@@ -31,7 +31,7 @@
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tr>
-                                    <td width="150px" class="align-middle text-center" rowspan="3">
+                                    <td width="150px" class="align-middle text-center" rowspan="5">
                                         <img src="<?= $foto == "" ? asset('website/img/default.png') : $foto ?>" width="150px" alt="user" />
                                     </td>
                                     <td width="20%" class="align-middle">Nama</td>
@@ -44,6 +44,22 @@
                                 <tr>
                                     <td class="align-middle">Jabatan</td>
                                     <td class="align-middle"><?= ucwords(strtolower($user_detail->nama_jabatan)) ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">No Hp</td>
+                                    <td class="align-middle"><?= $user_detail->no_hp ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">Alamat</td>
+                                    <td class="align-middle">
+                                        <?= $user_detail->jalan . ", Desa "
+                                            . $user_detail->desa . " RT " .
+                                            $user_detail->rt . " RW " .
+                                            $user_detail->rw . ", Kec." .
+                                            $user_detail->kecamatan . ", Kab. " .
+                                            $user_detail->kabupaten . ", " .
+                                            $user_detail->provinsi ?>
+                                    </td>
                                 </tr>
 
                             </table>
@@ -84,7 +100,7 @@
                                             <td style="padding: 5px;" class="align-middle"><?= $d->nama_file ?></td>
                                             <td style="padding: 5px;" class="align-middle"><?= $d->updated_at ?></td>
                                             <td style="padding: 5px;" class="align-middle text-center">
-                                                <a target="_blank" href="<?= base_url('assets/dokumen/') . $d->lokasi_file ?>" class="btn btn-sm btn-info waves-effect waves-light" type="button">Download</a>                                                
+                                                <a target="_blank" href="<?= base_url('assets/dokumen/') . $d->lokasi_file ?>" class="btn btn-sm btn-info waves-effect waves-light" type="button">Download</a>
                                                 <?php if ($user_data->level_user == 3 || $user_data->level_user == 1) : ?>
                                                     <button class="btn btn-sm btn-danger waves-effect waves-light" type="button" data-toggle="modal" data-target="#hapus_dokumen_<?= md5($d->id_file) ?>">Hapus</button>
                                                 <?php endif; ?>

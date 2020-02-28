@@ -35,11 +35,12 @@ class Auth extends CI_Controller
 
     public function proses_register()
     {
-// d($_POST);
+
         if ($this->input->post('password') != $this->input->post('konfirmasi_pass')) {
             $this->session->set_flashdata("gagal", "Konfirmasi Password salah! Silahkan ulangi Pendaftaran");
             redirect("auth/register");
         }
+        
 
         $dataInsert = [
             "id_jabatan"            => $this->input->post('jabatan'),
@@ -51,6 +52,14 @@ class Auth extends CI_Controller
             "password_user"         => md5($this->input->post('password')),
             "pendidikan_user"       => $this->input->post('pendidikan_pegawai'),
             "agama_user"            => $this->input->post('agama_pegawai'),
+            "no_hp"                 => $this->input->post('no_hp'),
+            "jalan"                 => $this->input->post('jalan'),
+            "rt"                    => $this->input->post('rt'),
+            "rw"                    => $this->input->post('rw'),
+            "desa"                  => $this->input->post('desa'),
+            "kecamatan"             => $this->input->post('kecamatan'),
+            "kabupaten"             => $this->input->post('kabupaten'),
+            "provinsi"              => $this->input->post('provinsi'),
             "level_user"            => 3
         ];
 

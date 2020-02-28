@@ -44,6 +44,7 @@
                         <div class="col-12">
                             <form class="form-horizontal m-t-20" id="loginform" method="POST" action="<?= base_url("auth/register") ?>">
                                 <div class="form-body">
+
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -113,10 +114,70 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <label>No Handphone</label>
+                                                <input maxlength="13" onkeyup="numOnly(this)" onblur="numOnly(this)" required type="tel" id="no_hp" name="no_hp" class="form-control" placeholder="No Hp Anda">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
                                                 <label>Username Anda</label>
                                                 <input required type="text" readonly id="username" name="username" class="form-control" placeholder="Username Anda">
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Jalan</label>
+                                                <input type="text" name="jalan" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>RT</label>
+                                                <input onkeyup="numOnly(this)" onblur="numOnly(this)" type="text" id="rt" name="rt" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>RW</label>
+                                                <input onkeyup="numOnly(this)" onblur="numOnly(this)" type="text" name="rw" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Desa</label>
+                                                <input type="text" name="desa" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Kecamatan</label>
+                                                <input type="text" name="kecamatan" class="form-control" required>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Kabupaten</label>
+                                                <input type="text" name="kabupaten" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Provinsi</label>
+                                                <input type="text" name="provinsi" class="form-control" required>
+                                            </div>
+                                        </div>                                        
                                     </div>
 
                                     <div class="row">
@@ -190,6 +251,10 @@
                 }
             })
         });
+
+        function numOnly(selector) {
+            selector.value = selector.value.replace(/[^0-9]/g, '');
+        }
     </script>
 </body>
 
