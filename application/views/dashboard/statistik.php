@@ -62,6 +62,18 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <canvas id="kecamatan" height="150"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
     </div>
@@ -196,4 +208,69 @@
             }
         }
     });
+
+    new Chart(document.getElementById("kecamatan"), {
+        type: 'pie',
+        data: {
+            labels: <?= $nama_kecamatan ?>,
+            datasets: [{
+                label: "Orang",
+                backgroundColor: [
+                    "#03a9f4",
+                    "#e861ff",
+                    "#08ccce",
+                    "#e2b35b",
+                    "#e40503",
+                    "#14a83e",
+                    "#fe6383",
+                    "#36a2eb",
+                    "#fb5839",
+                    "#223242",
+                    "#03a9f4",
+                    "#e861ff",
+                    "#08ccce",
+                    "#e2b35b",
+                    "#e40503",
+                    "#14a83e",
+                    "#fe6383",
+                    "#36a2eb",
+                    "#fb5839",
+                    "#223242",
+                    "#03a9f4",
+                    "#e861ff",
+                    "#08ccce",
+                    "#e2b35b",
+                    "#e40503",
+                    "#14a83e",
+                    "#fe6383",
+                    "#36a2eb",
+                    "#fb5839",
+                    "#223242",
+                    "#03a9f4",
+                    "#e861ff",
+                    "#08ccce",
+                    "#e2b35b",
+                    "#e40503",
+                    "#14a83e",
+                    "#fe6383",
+                    "#36a2eb",
+                    "#fb5839",
+                    "#223242",
+                    
+                ],
+                data: <?= $jmlKecamatan ?>
+            }]
+        },
+        options: {
+            legend: {
+                display: true
+            },
+            title: {
+                display: true,
+                text: 'Statistik Jabatan Pegawai Berdasarkan Kecamatan'
+            }
+        }
+    });
+
+
 </script>
