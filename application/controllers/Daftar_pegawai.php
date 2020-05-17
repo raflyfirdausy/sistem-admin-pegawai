@@ -150,7 +150,7 @@ class Daftar_pegawai extends Admin_Controller
         $cekUsername    = $this->m_data->getData("user")->row();
         if ($cekUsername) {
             $username = preg_replace('/[^a-zA-Z]/i', '', $username);
-            return $this->getUniqueUsername($username . $percobaan, ++$percobaan);
+            return $this->getUniqueUsername($username . " " . $percobaan, ++$percobaan);
         } else {
             return $username;
         }
